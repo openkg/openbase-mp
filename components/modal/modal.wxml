@@ -1,0 +1,16 @@
+<!-- components/modal/modal.wxml -->
+<view class="modal-back">
+  <view style="{{style1}}" class="main-modal">
+    <view class="modal-title">{{title}}</view>
+    <view class="divider"></view>
+    <view class="content">
+      <slot></slot>
+    </view>
+    <view class="footer">
+      <button class="md-btn primary" bindtap="handleOk">确定</button>
+      <button class="md-btn" wx:if="{{type==='simple'}}" class="md-btn" bindtap="handleCancel">
+        取消
+      </button>
+    </view>
+  </view>
+</view>

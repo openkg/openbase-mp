@@ -1,0 +1,12 @@
+<!-- components/childentity/childentity.wxml -->
+<view class="container" bindtap="handleClick">
+  <view wx:if="{{imageUrl}}" class="image">
+    <image mode="aspectFill" class="image" src="{{imageUrl}}" />
+  </view>
+  <view class="info">
+    <view class="info-row" wx:for="{{info}}" wx:for-index="key" wx:for-item="value" wx:key="key">
+      <text class="key">{{key}}</text>
+      <text class="value">{{value}}</text>
+    </view>
+  </view>
+</view>

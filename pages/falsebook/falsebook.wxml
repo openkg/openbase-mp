@@ -1,0 +1,13 @@
+<!-- pages/falsebook/falsebook.wxml -->
+<scroll-view class="page-container" bindscrolltolower="query" scroll-y="{{scrollable}}" enable-flex="{{true}}" scroll-x="{{false}}">
+  <view wx:if="{{entities.length === 0 && !loading}}" class="empty-container">
+    <image src="../../assets/icons/empty.png" style="width: 140rpx; height: 140rpx; margin-bottom: 15rpx;" />
+    <view style="color: #999999; font-size: 24rpx;">目前没有错题哦</view>
+  </view>
+  <view wx:else>
+    <view wx:for="{{entities}}" wx:for-item="entity" wx:key="_id">
+      <entity-card display data="{{entity}}" bind:remove="removeEntity" bind:togglescroll="toggleScroll"></entity-card>
+    </view>
+  </view>
+  <view wx:if="{{loading}}">正在加载...</view>
+</scroll-view>

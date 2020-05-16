@@ -1,0 +1,68 @@
+<wxs module="m1">
+  var hasField = function(favoriteList, value) {
+    for (var i=0; i<favoriteList.length; i++) {
+      if (favoriteList[i] === value) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  var hasError = function(errorList, value) {
+    for (var i=0; i<errorList.length; i++) {
+      if (errorList[i] === value) {
+        return true
+      }
+    }
+    return false
+  }
+  module.exports.hasField = hasField;
+  module.exports.hasError = hasError;
+</wxs>
+<!-- pages/register.wxml -->
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="input-container">
+      <text>姓名</text>
+      <input data-field="name" class="input" name="name" placeholder="请输入姓名" bindfocus="clearErrormsg" bindblur="checkEmpty" />
+      <text wx:if="{{m1.hasError(errorForm, 'name')}}" class="err-msg">姓名为必填项</text>
+    </view>
+    <view class="input-container">
+      <text>密码</text>
+      <input data-field="password" password="{{true}}" class="input" name="password" placeholder="请输入密码" bindfocus="clearErrormsg" bindblur="checkPwd" />
+      <text wx:if="{{m1.hasError(errorForm, 'password')}}" class="err-msg">
+        密码应由多于5位少于13位的非空格字符组成
+      </text>
+    </view>
+    <view class="ver-code">
+      <view class="input-container">
+        <text>验证码</text>
+        <input data-field="smscode" class="input" name="smscode" placeholder="请输入验证码" bindfocus="clearErrormsg" bindblur="checkEmpty" />
+        <text wx:if="{{m1.hasError(errorForm, 'smscode')}}" class="err-msg">验证码为必填项</text>
+      </view>
+      <button class="btn" type="primary" bindtap="getCode" disabled="{{disabled}}">
+        {{disabled ? '(' + countSec + 's' + ')' : '获取验证码'}}
+      </button>
+    </view>
+    <view class="input-container">
+      <text>邮箱</text>
+      <input class="input" name="email" placeholder="请输入邮箱" />
+    </view>
+    <view class="input-container">
+      <text>公司</text>
+      <input class="input" name="organization" placeholder="请输入公司" />
+    </view>
+    <view style="margin-bottom: 30rpx;">{{'擅长领域&个性标签'}}</view>
+    <button wx:for="{{fields}}" wx:for-item="field" wx:key="field" data-value="{{field}}" bindtap="handleClickField" class="check-btn {{m1.hasField(favoriteList, field) ? 'active': ''}}">
+      {{field}}
+    </button>
+    <view class="button-row">
+      <button class="form-btn" style="background: #e4e4e4 !important" size="mini" bindtap="formCancel">
+        取消
+      </button>
+      <button class="form-btn" type="primary" size="mini" form-type="submit" disabled="{{errorForm.length > 0}}">
+        注册
+      </button>
+    </view>
+  </form>
+</view>

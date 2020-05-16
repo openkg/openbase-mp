@@ -1,0 +1,110 @@
+<!-- components/entitycard/entitycard.wxml -->
+<movable-area class="{{display ? 'display-area' : 'area'}}">
+  <movable-view wx:if="{{type === 'relationship' && !display}}" animation="{{animation}}" direction="all" x="{{x}}" y="{{y}}" bindchange="handleMove" bindtouchend="handleTouched" out-of-bounds="{{true}}" class="{{display ? 'display-entity-card' : 'entity-card'}}">
+    <view class="title">请判断以下红字关系是否正确</view>
+    <view class="relationship">
+      {{subjectName}}与{{objectName}}为
+      <text style="color: red; font-weight: bold;">{{propertyName}}关系</text>
+    </view>
+    <view class="divider"></view>
+    <child-entity info="{{subject}}" imageUrl="{{subjectImage}}" bind:unfold="showDialog"></child-entity>
+    <child-entity info="{{object}}" imageUrl="{{objectImage}}" bind:unfold="showObjDialog"></child-entity>
+    <view class="button-row">
+      <button wx:if="{{!display}}" class="unknow-btn" bindtap="unknow">这题不会</button>
+    </view>
+  </movable-view>
+  <movable-view wx:elif="{{type !== 'relationship' && !display}}" animation="{{animation}}" direction="all" x="{{x}}" y="{{y}}" bindchange="handleMove" bindtouchend="handleTouched" out-of-bounds="{{true}}" class="{{display ? 'display-entity-card' : 'entity-card'}}">
+    <view class="title">
+      请判断
+      <text style="color: red;">{{subjectName}}</text>
+      的红字属性是否正确
+    </view>
+    <view class="divider"></view>
+    <child-entity wx:if="{{subjectImage}}" info="{{subject}}" imageUrl="{{subjectImage}}" bind:unfold="showDialog"></child-entity>
+    <view class="extra-props">
+      <view class="extra-row" style="line-height: 34rpx;max-height: 102rpx;">
+        <text class="key">{{propertyName}}</text>
+        <text class="red-bold">{{data.subject[propertyName][0]['@value']}}</text>
+      </view>
+      <view class="extra-row" wx:for="{{extraProps}}" wx:for-index="key" wx:for-item="value" wx:key="key">
+        <text class="key">{{key}}</text>
+        <text class="value">{{value}}</text>
+      </view>
+      <view class="button-row">
+        <button class="unknow-btn" bindtap="showDialog">查看完整内容</button>
+        <button wx:if="{{!display}}" class="unknow-btn" bindtap="unknow">这题不会</button>
+      </view>
+      <!-- <view class="divider"></view> -->
+      <view wx:if="{{display}}" class="review-btns">
+        <button class="review-btn">修改该属性</button>
+        <button class="review-btn">没有该属性</button>
+        <button class="review-btn">属性错误，但我不知道</button>
+      </view>
+    </view>
+  </movable-view>
+  <view wx:elif="{{type === 'relationship' && display}}" direction="none" out-of-bounds="{{true}}" class="{{display ? 'display-entity-card' : 'entity-card'}}">
+    <view class="title">请判断以下红字关系是否正确</view>
+    <view class="relationship">
+      {{subjectName}}与{{objectName}}为
+      <text style="color: red">{{propertyName}}关系</text>
+    </view>
+    <view class="divider"></view>
+    <child-entity info="{{subject}}" imageUrl="{{subjectImage}}" bind:unfold="showDialog"></child-entity>
+    <child-entity info="{{object}}" imageUrl="{{objectImage}}" bind:unfold="showObjDialog"></child-entity>
+    <view class="button-row">
+      <button wx:if="{{!display}}" class="unknow-btn" bindtap="unknow">这题不会</button>
+    </view>
+  </view>
+  <view wx:else class="{{display ? 'display-entity-card' : 'entity-card'}}">
+    <view class="title">
+      请判断
+      <text style="color: red;font-weight: bold;">{{subjectName}}</text>
+      的红字属性是否正确
+    </view>
+    <view class="divider"></view>
+    <child-entity wx:if="{{subjectImage}}" info="{{subject}}" imageUrl="{{subjectImage}}" bind:unfold="showDialog"></child-entity>
+    <view class="extra-props">
+      <view class="extra-row" style="max-height: 86rpx; align-items: center;">
+        <text class="key">{{propertyName}}</text>
+        <!-- <input value="{{inputValue}}" bindinput="handleInput" style="color: red; font-weight: bold; flex-grow: 1;" /> -->
+        <text class="red-bold">{{data.subject[propertyName][0]['@value']}}</text>
+      </view>
+      <view class="extra-row" wx:for="{{extraProps}}" wx:for-index="key" wx:for-item="value" wx:key="key">
+        <text class="key">{{key}}</text>
+        <text class="value">{{value}}</text>
+      </view>
+      <view class="button-row">
+        <button class="unknow-btn" bindtap="showDialog">查看完整内容</button>
+        <button wx:if="{{!display}}" class="unknow-btn" bindtap="unknow">这题不会</button>
+      </view>
+      <view class="divider"></view>
+      <view wx:if="{{display}}" class="review-btns">
+        <button data-review="modify" class="review-btn" bindtap="showAttrModify">修改该属性</button>
+        <button data-review="no-property" class="review-btn" bindtap="handleReviewTap">
+          没有该属性
+        </button>
+        <button data-review="unknow" class="review-btn" bindtap="handleReviewTap">
+          属性错误，但我不知道
+        </button>
+      </view>
+    </view>
+  </view>
+  <dialog style1="{{display ? 'transform: translateY(40rpx);' : ''}}" title="完整内容" wx:if="{{visible}}" bind:ok="hideDialog">
+    <view style="padding-bottom: 30rpx" wx:for="{{detail}}" wx:for-index="key" wx:for-item="value" wx:key="key">
+      <view style="margin-bottom: 20rpx;">{{key}}</view>
+      <view style="font-size: 24rpx; margin-left: 50rpx; word-wrap: break-word;">{{value}}</view>
+    </view>
+  </dialog>
+  <dialog style1="{{display ? 'transform: translateY(40rpx);' : ''}}" title="完整内容" wx:if="{{objvisible}}" bind:ok="hideObjDialog">
+    <view style="padding-bottom: 30rpx" wx:for="{{objDetail}}" wx:for-index="key" wx:for-item="value" wx:key="key">
+      <view style="margin-bottom: 20rpx;">{{key}}</view>
+      <view style="font-size: 24rpx; margin-left: 50rpx; word-wrap: break-word;">{{value}}</view>
+    </view>
+  </dialog>
+  <dialog type="simple" style="{{display ? 'transform: translateY(40rpx);' : ''}}" title="确认操作" wx:if="{{warnVisible}}" bind:ok="handleWarnOk" bind:cancel="hideWarn">
+    <view>确定该操作吗？操作完成后，该项会被移出错题本。</view>
+  </dialog>
+  <dialog title="修改属性" type="simple" style="{{display ? 'transform: translateY(40rpx);' : ''}}" wx:if="{{modifyAttrVisible}}" bind:ok="handleWarnOk" bind:cancel="hideAttrModify">
+    <input focus value="{{inputValue}}" bindinput="handleInput" />
+  </dialog>
+</movable-area>

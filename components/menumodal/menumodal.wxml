@@ -1,0 +1,17 @@
+<!-- components/menumodal/menumodal.wxml -->
+<view class="modal" bindtap="handleClose">
+  <view class="buttons">
+    <button class="modal-button" bindtap="goHome">
+      <image class="modal-image" src="../../assets/icons/home.png" />
+    </button>
+    <button class="modal-button" bindtap="goPerson">
+      <image class="modal-image" src="../../assets/icons/person.png" />
+    </button>
+    <button class="modal-button" bindtap="goError">
+      <image class="modal-image" src="../../assets/icons/homework.png" />
+    </button>
+    <button class="modal-button" bindtap="handleClose">
+      <image class="modal-image" src="../../assets/icons/close.png" />
+    </button>
+  </view>
+</view>

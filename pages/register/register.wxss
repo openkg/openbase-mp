@@ -1,0 +1,79 @@
+/* pages/register.wxss */
+.button-row {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 80rpx;
+}
+
+.ver-code {
+  position: relative;
+}
+
+.btn {
+  z-index: 2;
+  right: 0;
+  bottom: 15rpx;
+  position: absolute;
+  background: #fafafa !important;
+  border-radius: 34px;
+  width: 230rpx !important;
+  min-height: 40rpx !important;
+  line-height: 40rpx;
+  color: black !important;
+}
+
+button {
+  width: 200rpx !important;
+  border-radius: 40rpx;
+  font-size: 24rpx;
+}
+
+.form-btn {
+  min-height: 85rpx !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #007cff !important;
+  line-height: 85rpx !important;
+}
+
+.form-btn[disabled] {
+  background: #fafafa !important;
+}
+
+.check-btn {
+  display: inline-block;
+  margin: 0 10rpx 10rpx 0 !important;
+  min-width: 200rpx !important;
+  min-height: 85rpx !important;
+  line-height: 85rpx;
+  padding: 0 !important;
+  text-align: center;
+  border: 2rpx solid transparent;
+}
+
+.check-btn.active {
+  color: #007cff;
+  border: 2rpx solid #007cff;
+  background: white;
+}
+
+.input-container {
+  position: relative;
+  margin: 60rpx 0;
+}
+
+.input {
+  width: 100%;
+  border-bottom: 1rpx solid rgba(120, 120, 120, 0.1);
+  height: 20rpx;
+  padding: 20rpx 0;
+}
+
+.err-msg {
+  color: red;
+  font-size: 24rpx;
+  position: absolute;
+  left: 0;
+  bottom: -30rpx;
+}

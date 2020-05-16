@@ -1,0 +1,55 @@
+<wxs module="m1">
+  var class1 = function(upperIndex, slideLeft, slideRight, slideUp) {
+    var result = "lower";
+    if (!upperIndex) {
+      result += " upper";
+      if (slideLeft) {
+        result += " slide-left";
+      } else if (slideRight) {
+        result += " slide-right";
+      } else if (slideUp) {
+        result += " slide-up";
+      }
+    }
+    return result;
+  }
+  var class2 = function(upperIndex, slideLeft, slideRight, slideUp) {
+    var result = "lower";
+    if (upperIndex) {
+      result += " upper";
+      if (slideLeft) {
+        result += " slide-left";
+      } else if (slideRight) {
+        result += " slide-right";
+      } else if (slideUp) {
+        result += " slide-up";
+      }
+    }
+    return result;
+  }
+  module.exports.class1 = class1;
+  module.exports.class2 = class2;
+</wxs>
+<!-- pages/mark/mark.wxml -->
+<view class="page-container">
+  <view style="{{cardContainerStyle}}" class="{{m1.class1(upperIndex, slideLeft, slideRight, slideUp)}}">
+    <entity-card data="{{cache[0]}}" bind:unknow="handleUnknow" bind:right="handleCorrect" bind:false="handleError" bind:hideButtons="toggleHideButtons"></entity-card>
+  </view>
+  <view style="{{cardContainerStyle}}" class="{{m1.class2(upperIndex, slideLeft, slideRight, slideUp)}}">
+    <entity-card data="{{cache[1]}}" bind:unknow="handleUnknow" bind:right="handleCorrect" bind:false="handleError" bind:hideButtons="toggleHideButtons"></entity-card>
+  </view>
+  <view class="btn-container" style="{{hideButtons ? 'z-index: -1' : ''}}">
+    <button bindtap="handleError" class="rewrite-btn large" style="box-shadow: 0rpx 15rpx 30rpx -10rpx #FF834B">
+      <image class="large" src="../../assets/icons/error.png" />
+    </button>
+    <button bindtap="openModal" class="rewrite-btn small" style="box-shadow: 0rpx 12rpx 27rpx -10rpx silver">
+      <image class="small" src="../../assets/icons/menu.png" />
+    </button>
+    <button class="rewrite-btn large" style="box-shadow: 0rpx 15rpx 30rpx -10rpx #417CFF" bindtap="handleCorrect">
+      <image class="large" src="../../assets/icons/correct.png" />
+    </button>
+  </view>
+  <view hidden="{{!showModal}}">
+    <modal bind:closeModal="closeModal"></modal>
+  </view>
+</view>

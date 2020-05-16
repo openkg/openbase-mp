@@ -1,0 +1,122 @@
+/* components/entitycard/entitycard.wxss */
+.area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400vw;
+  height: 150vh;
+}
+.display-area {
+  position: relative;
+  width: auto;
+  height: auto;
+  margin: 16rpx 0;
+}
+.entity-card {
+  background: white;
+  box-sizing: border-box;
+  width: calc(100vw - 80rpx);
+  height: calc(100vh - 32rpx - 283rpx);
+  border-radius: 32rpx;
+  box-shadow: 0 60rpx 60rpx 0 rgba(0, 0, 0, 0.08);
+  padding: 40rpx;
+  top: calc(50% - 50vh + 16rpx);
+  left: calc(50% - 50vw + 40rpx);
+}
+
+.display-entity-card {
+  background: white;
+  box-sizing: border-box;
+  width: calc(100vw - 80rpx);
+  height: auto;
+  border-radius: 32rpx;
+  box-shadow: 0 60rpx 60rpx 0 rgba(0, 0, 0, 0.08);
+  padding: 40rpx;
+  display: block;
+  position: relative;
+}
+
+.title {
+  font-size: 36rpx;
+  margin-bottom: 8rpx;
+  font-weight: bold;
+}
+
+.divider {
+  margin: 40rpx 0;
+  height: 1rpx;
+  background: rgba(120, 120, 120, 0.1);
+}
+
+.relationship {
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 33rpx;
+  max-height: 66rpx;
+  overflow: hidden;
+}
+
+.extra-row {
+  margin: 40rpx 0;
+  font-size: 24rpx;
+  line-height: 29rpx;
+  max-height: 58rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+}
+.extra-row > text {
+  word-wrap: break-word;
+}
+.extra-row > .key {
+  flex-shrink: 0;
+  overflow: hidden;
+  color: #999999;
+  width: 100rpx;
+  margin-right: 24rpx;
+  max-height: 29rpx;
+}
+
+.unknow-btn {
+  box-sizing: border-box;
+  width: auto !important;
+  min-height: 0 !important;
+  border-radius: 40rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  margin: 15rpx !important;
+  margin-bottom: 0 !important;
+  background: #fafafa;
+  border: 1rpx solid #ececec;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+}
+
+.review-btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-btn {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  min-height: 0 !important;
+  box-sizing: border-box;
+  margin: 20rpx 0 !important;
+  font-size: 24rpx;
+  border-radius: 40rpx;
+  width: 100% !important;
+  font-weight: bold;
+  background: #fafafa;
+  border: 1rpx solid #ececec;
+  border-radius: 44rpx;
+}
+
+.red-bold {
+  color: red;
+  font-weight: bold;
+}

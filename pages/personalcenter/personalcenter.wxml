@@ -1,0 +1,31 @@
+<!-- pages/personalcenter/personalcenter.wxml -->
+<view class="container">
+  <view class="user-row">
+    <image wx:if="{{userInfo.photo}}" class="avatar" src="{{userInfo.photo}}" mode="aspectFill" />
+    <image wx:else class="avatar" src="../../assets/icons/avatar.png" mode="aspectFill" />
+    <text style="font-weight: bold;">{{userInfo.name}}</text>
+    <!-- <button class="" bindtap="shareOut">分享</button> -->
+  </view>
+  <view class="card">
+    <view class="num">
+      <view>
+        <view class="number">{{userInfo.reviewedSPOCount}}</view>
+        <view class="hint">审核数量</view>
+      </view>
+      <view class="divider"></view>
+      <view>
+        <view class="number">{{userInfo.correctedSPOCount}}</view>
+        <view class="hint">纠错数量</view>
+      </view>
+    </view>
+    <view class="beat">你打败了{{userInfo.rankRatio}}%的用户</view>
+  </view>
+  <item key="邮箱" value="{{userInfo.email}}" />
+  <item key="擅长领域" value="{{userInfo.favoriteList}}" />
+  <item key="机构" value="{{userInfo.organization}}" />
+  <view style="padding: 30rpx;">
+    <button open-type="share" style="border-radius: 44rpx; width: 100%; background: #fafafa; color: black; border: 1rpx solid #ececec; min-height: 0 !important; font-size: 28rpx;">
+      邀请好友
+    </button>
+  </view>
+</view>

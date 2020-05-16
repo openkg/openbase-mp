@@ -1,0 +1,18 @@
+/* components/item/item.wxss */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 140rpx;
+  border-bottom: 1rpx solid rgba(120, 120, 120, 0.1);
+}
+
+.key {
+  font-weight: bold;
+  font-size: 26rpx;
+}
+
+.value {
+  font-weight: 200;
+  font-size: 30rpx;
+}

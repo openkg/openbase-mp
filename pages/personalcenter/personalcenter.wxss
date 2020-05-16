@@ -1,0 +1,53 @@
+/* pages/personalcenter/personalcenter.wxss */
+.personalcenter {
+  display: flex;
+  justify-content: space-between;
+}
+.user-row {
+  margin-bottom: 30rpx;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+.card {
+  color: white;
+  padding: 30rpx 50rpx;
+  background: linear-gradient(134deg, #259aff 0%, #0c70ff 100%);
+  box-shadow: 0 20rpx 40rpx 0 rgba(93, 158, 255, 0.39);
+  border-radius: 18rpx;
+}
+.num {
+  display: flex;
+  margin-bottom: 30rpx;
+}
+.hint {
+  font-size: 25rpx;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+.number {
+  font-size: 80rpx;
+}
+
+.divider {
+  background: rgba(120, 120, 120, 0.1);
+  margin: 20rpx;
+  width: 1rpx;
+  height: 60rpx;
+  align-self: center;
+}
+
+.beat {
+  text-align: center;
+  height: 70rpx;
+  border-radius: 35rpx;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  line-height: 70rpx;
+}

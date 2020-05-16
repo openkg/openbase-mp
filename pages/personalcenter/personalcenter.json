@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "item": "/components/item/item"
+  },
+  "navigationBarTitleText": "个人中心"
+}

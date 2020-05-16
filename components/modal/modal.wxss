@@ -1,0 +1,60 @@
+/* components/modal/modal.wxss */
+.modal-back {
+  position: fixed;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.main-modal {
+  box-sizing: border-box;
+  max-height: calc(100vh - 80rpx);
+  width: calc(100vw - 80rpx);
+  padding: 40rpx;
+  background: white;
+  border-radius: 32rpx;
+  position: relative;
+  top: -40rpx;
+}
+
+.content {
+  max-height: calc(100vh - 380rpx);
+  overflow: auto;
+}
+
+.md-btn {
+  min-width: 0;
+  min-height: 0;
+  width: 180rpx !important;
+  height: 80rpx !important;
+  line-height: 80rpx;
+  padding: 0;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  background: #fafafa;
+  border: 1rpx solid #ececec;
+}
+
+/* .md-btn.primary {
+  color: white;
+} */
+
+.divider {
+  height: 1rpx;
+  background: rgba(120, 120, 120, 0.1);
+  margin: 40rpx 0;
+}
+
+.footer {
+  padding-top: 40rpx;
+  display: flex;
+  justify-content: center;
+}

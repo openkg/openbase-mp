@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "entity-card": "/components/entitycard/entitycard",
+    "modal": "/components/menumodal/menumodal"
+  }
+}

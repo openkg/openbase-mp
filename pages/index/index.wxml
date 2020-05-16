@@ -1,0 +1,90 @@
+<!-- index.wxml -->
+<!-- <view class="container"></view> -->
+<block>
+  <view class="banner">
+    <image src="../../assets/icons/banner2.png" style="position: absolute; width: 370rpx; height: 440rpx; right: 0rpx; top: 20rpx;" />
+    <image style="position: absolute; width: 380rpx; height: 118rpx; top: 102rpx; left: 50rpx;" src="../../assets/icons/banner1.png" />
+  </view>
+  <view>
+    <view class="card-container">
+      <view class="hover-card">
+        <!-- OpenBase是中文开放域高质量免费知识图谱的众包项目，
+      由NGO组织OpenKG发起，OpenKG旨在促进中文知识图谱
+      数据的开放与互联，促进知识图谱和语义技术的普及和广泛
+      应用。OpenBase是OpenKG的子产品旨通过众包激励手段
+      在为中文开放的知识图谱数据的准确性添砖加瓦。
+        <view>OpenBase 网页版：openbase.ai.xiaomi.com</view> -->
+        首页OpenBase是OpenKG实现的知识图谱众包平台，旨在推动高质量免费开放领域知识图谱协作众包。
+        <view>OpenBase网页版为：http://openbase.openkg.cn</view>
+      </view>
+    </view>
+  </view>
+  <view class="container" style="margin: 200rpx 0 100rpx 0">
+    <view class="section">
+      <view class="title">
+        <image class="icon" src="../../assets/icons/stats.png" />
+        <view class="h3">数据统计</view>
+        <view class="bouncer"></view>
+        <image class="en" style="width: 257rpx; height: 80rpx;" src="../../assets/icons/data.png" />
+      </view>
+      <view style="margin-top: -30rpx;">
+        <view class="stats-row">
+          <view class="dot"></view>
+          <view>领域数</view>
+          <view class="bouncer"></view>
+          <view>1,234,229</view>
+        </view>
+        <view class="stats-row">
+          <view class="dot"></view>
+          <view>实体数</view>
+          <view class="bouncer"></view>
+          <view>11,513,944</view>
+        </view>
+        <view class="stats-row">
+          <view class="dot"></view>
+          <view>三元组</view>
+          <view class="bouncer"></view>
+          <view>107,264,094</view>
+        </view>
+      </view>
+    </view>
+    <view class="section">
+      <view class="title">
+        <image class="icon" src="../../assets/icons/function.png" />
+        <view class="h3">功能介绍</view>
+        <view class="bouncer"></view>
+        <image class="en" style="width: 435rpx; height: 80rpx;" src="../../assets/icons/examine.png" />
+      </view>
+      <view class="introduction">
+        OpenBase总共有图谱创建，图谱编辑，图谱的审核和图谱的下载四大功能，目前小程序版本只有图谱的审核功能。让志愿者可以方便利用碎片化的时间，来给图谱随手标注，为中文知识图谱的开发贡献自己的力量。
+      </view>
+    </view>
+    <!-- <view class="section">
+      <view class="title">
+        <image class="icon" src="../../assets/icons/billboard.png" />
+        贡献榜
+      </view>
+    </view> -->
+    <!-- <view class="section">
+      <view class="title">
+        <image class="icon" src="../../assets/icons/team.png" />
+        <view class="h3">产研团队</view>
+        <view class="bouncer"></view>
+        <image class="en" style="width: 273rpx; height: 80rpx;" src="../../assets/icons/team@.png" />
+      </view>
+      <view wx:for="{{volunteers}}" wx:for-item="volunteer" wx:key="name" class="person-row">
+        <image class="avatar" src="{{volunteer.avatar}}" mode="aspectFill" />
+        <view class="volunteer-info">
+          <view style="font-weight: 500;">{{volunteer.name}}</view>
+          <view class="org">{{volunteer.org}}</view>
+        </view>
+        <view class="job-title">{{volunteer.job}}</view>
+      </view>
+    </view> -->
+  </view>
+  <view class="bottom-container">
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="btm-btn" type="primary">
+      <view>开始审核</view>
+    </button>
+  </view>
+</block>

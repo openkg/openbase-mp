@@ -1,0 +1,67 @@
+/* pages/mark/mark.wxss */
+.page-container {
+  overflow: hidden;
+  position: relative;
+  height: calc(100vh - 32rpx - 283rpx);
+  padding: 32rpx 40rpx 283rpx 40rpx;
+  width: calc(100% - 80rpx);
+  background: #f3f6fb;
+}
+.btn-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  padding-bottom: 73rpx;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.rewrite-btn {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 50%;
+}
+
+.large {
+  width: 128rpx !important;
+  height: 128rpx;
+}
+
+.small {
+  width: 88rpx !important;
+  height: 88rpx;
+}
+
+.btn-icon {
+  object-fit: contain;
+}
+
+.lower {
+  position: relative;
+  transform: scale(0.925) translateY(50rpx);
+}
+
+.upper {
+  position: relative;
+  z-index: 5;
+  transform: none;
+  transition: transform 0.4s;
+}
+
+.slide-right {
+  transform: translateX(130%);
+  transition: transform 0.38s;
+}
+
+.slide-left {
+  transform: translateX(-130%);
+  transition: transform 0.38s;
+}
+
+.slide-up {
+  transform: translateY(-130%);
+  transition: transform 0.38s;
+}

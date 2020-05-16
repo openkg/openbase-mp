@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "child-entity": "/components/childentity/childentity",
+    "dialog": "/components/modal/modal"
+  }
+}

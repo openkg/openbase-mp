@@ -1,0 +1,58 @@
+/* components/childentity/childentity.wxss */
+.container {
+  background: #fafafa;
+  border-radius: 16rpx;
+  border: 1rpx solid #ececec;
+  padding: 20rpx;
+  margin: 30rpx 0;
+  height: 189rpx;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: contain;
+  width: 189rpx;
+  height: 189rpx;
+  flex-shrink: 0;
+  margin-right: 30rpx;
+  border-radius: 12rpx;
+}
+
+text {
+  display: inline-block;
+}
+
+.info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.info-row {
+  display: flex;
+  overflow: hidden;
+}
+
+.info-row:not(:first-child) {
+  margin-top: 40rpx;
+}
+
+.key,
+.value {
+  font-size: 28rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+  overflow: hidden;
+  word-wrap: break-word;
+  min-width: 0;
+}
+
+.key {
+  margin-right: 24rpx;
+  color: #999999;
+  width: 80rpx;
+  flex-shrink: 0;
+}

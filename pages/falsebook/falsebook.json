@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "entity-card": "/components/entitycard/entitycard"
+  },
+  "navigationBarTitleText": "错题本"
+}
